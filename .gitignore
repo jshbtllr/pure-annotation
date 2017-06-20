@@ -1,0 +1,4 @@
+#Ignoring Target Folder and Cache Folder
+target/
+cache/
+logfiles/

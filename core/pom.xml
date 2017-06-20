@@ -1,0 +1,37 @@
+<project>
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.exercise9</groupId>
+		<artifactId>Employee-Spring</artifactId>
+		<version>1.0.1</version>		
+	</parent>	
+
+	<groupId>com.exercise9.core</groupId>
+	<artifactId>core</artifactId>
+	<version>1.0.1</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>model</module>
+		<module>dao</module>
+		<module>service</module>
+	</modules>		
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+				</plugin>
+			</plugins>
+		</pluginManagement>		
+	</build>
+</project>
