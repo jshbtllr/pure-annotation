@@ -16,7 +16,7 @@
 			<security:authorize access="hasRole('ADMIN')">
 			<tr width=100%>
 				<td colspan="4" align="right">
-					<a href="/j_spring_security_logout"> logout </a>
+					<a href="/logout"> logout </a>
 				</td>
 			</tr>
 			</security:authorize>

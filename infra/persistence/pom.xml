@@ -10,7 +10,7 @@
 
 	<groupId>com.exercise9.infra.persistence</groupId>
 	<artifactId>persistence</artifactId>
-	<version>${parent-version}</version>
+	<version>1.0.1</version>
 
 	<build>
 		<finalName>${project.artifactId}</finalName>

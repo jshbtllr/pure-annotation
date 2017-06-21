@@ -13,7 +13,7 @@
             <tr align="center">
                 <td colspan="2" align="center"> Login as an Admin User </td>
             </tr>
-            <form action="<core:url value='j_spring_security_check'/>" method="POST">
+            <form action="<core:url value='/login'/>" method="POST">
             <tr align="left">
                 <td align="left"> Username: </td>
                 <td align="left"> <input type="text" name="username" required/></td>

@@ -10,7 +10,7 @@
 
 	<groupId>com.exercise9.core.model</groupId>
 	<artifactId>model</artifactId>
-	<version>${parent-version}</version>
+	<version>1.0.1</version>
 
 	<dependencies>
 		<dependency>

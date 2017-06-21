@@ -16,7 +16,7 @@ public class SecurityController {
 	public ModelAndView adminLogin() {
 		logger.info("Admin Login");
 
-		ModelAndView modelAndView = new ModelAndView("login");
+		ModelAndView modelAndView = new ModelAndView("signin");
 
 		return modelAndView;
 	}

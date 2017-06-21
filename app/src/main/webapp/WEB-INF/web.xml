@@ -9,29 +9,36 @@
     <servlet>
         <servlet-name>employee</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextClass</param-name>
+            <param-value>
+                org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+            </param-value>
+        </init-param>    
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>com.exercise9.app.MainConfiguration</param-value>
+        </init-param>            
         <load-on-startup>1</load-on-startup>
     </servlet>
 
     <!--mapping all requests will be handled by DispatcherServlet-->
 
+    <context-param>
+        <param-name>contextClass</param-name>
+        <param-value>
+            org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+        </param-value>
+    </context-param>    
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>com.exercise9.app.MainConfiguration</param-value>
+    </context-param>    
+
     <servlet-mapping>
         <servlet-name>employee</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-
-    <!--main directory / can't be accessed -->
-
-    <context-param>
-        <param-name>org.eclipse.jetty.servlet.Default.dirAllowed</param-name>
-        <param-value>false</param-value>
-    </context-param>    
-
-    <!--Dispatcher Servlet Definition-->
-
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/employee-servlet.xml /WEB-INF/spring-security.xml</param-value>
-    </context-param>
 
     <listener>
         <listener-class>
