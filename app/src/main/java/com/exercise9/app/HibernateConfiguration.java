@@ -20,8 +20,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 @Configuration
-@EnableTransactionManagement
-@EnableAspectJAutoProxy(proxyTargetClass=true)
+@EnableTransactionManagement(proxyTargetClass=true)
 @PropertySource("classpath:hibernate.properties")
 public class HibernateConfiguration {
 	
