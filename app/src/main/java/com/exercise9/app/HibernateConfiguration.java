@@ -16,9 +16,13 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+
 @Configuration
 @EnableTransactionManagement
 @EnableAspectJAutoProxy(proxyTargetClass=true)
+@PropertySource("classpath:hibernate.properties")
 public class HibernateConfiguration {
 	
 	@Value("${hibernate.dialect}")
@@ -46,19 +50,19 @@ public class HibernateConfiguration {
 	@Bean
 	public BasicDataSource getDataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
-		dataSource.setDriverClassName("org.postgresql.Driver");
-		dataSource.setUrl("jdbc:postgresql://localhost:5432/employeeregistration");
-		dataSource.setUsername("postgres");
-		dataSource.setPassword("ex1stgl0bal");
+		dataSource.setDriverClassName(driverClass);
+		dataSource.setUrl(url);
+		dataSource.setUsername(username);
+		dataSource.setPassword(password);
 		return dataSource;
 	}
 
 	@Bean
 	public Properties getProperties() {
 		Properties properties = new Properties();
-		properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
-		properties.put("hibernate.show_sql", "false");
-		properties.put("hibernate.cache.region.factory_class", "org.hibernate.cache.ehcache.EhCacheRegionFactory");
+		properties.put("hibernate.dialect", dialect);
+		properties.put("hibernate.show_sql", showSql);
+		properties.put("hibernate.cache.region.factory_class", cacheProvider);
 		properties.put("hibernate.cache.use_second_level_cache","true");
 		properties.put("hibernate.cache.use_query_cache","true");
 		return properties;
@@ -72,6 +76,11 @@ public class HibernateConfiguration {
 		sessionFactoryBean.setPackagesToScan(new String[] {"com.exercise9.core.model"});
 		return sessionFactoryBean;
 	}
+
+	@Bean
+	public static PropertySourcesPlaceholderConfigurer propertyConfig() {
+		return new PropertySourcesPlaceholderConfigurer();
+	}	
 
 	@Bean
 	@Autowired
